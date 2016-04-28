@@ -1,0 +1,60 @@
+{
+  "name": "nutrition",
+  "base": "Model",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "calories_amount_serving": {
+      "type": "number"
+    },
+    "fat_trans_g": {
+      "type": "number"
+    },
+    "fat_total_g": {
+      "type": "number"
+    },
+    "fat_saturated_g": {
+      "type": "number"
+    },
+    "cholesterol_mg": {
+      "type": "number"
+    },
+    "serving_size_g": {
+      "type": "number"
+    },
+    "sodium_mg": {
+      "type": "number"
+    },
+    "carbohydrate_total_g": {
+      "type": "number"
+    },
+    "protein_g": {
+      "type": "number"
+    },
+    "carbohydrate_sugars_g": {
+      "type": "number"
+    },
+    "carbohydrate_dietary_fiber_g": {
+      "type": "number"
+    },
+    "vitamin_A": {
+      "type": "number"
+    },
+    "vitamin_C": {
+      "type": "number"
+    },
+    "calcium": {
+      "type": "number"
+    },
+    "iron": {
+      "type": "number"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
