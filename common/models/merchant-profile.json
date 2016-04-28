@@ -1,0 +1,58 @@
+{
+  "name": "merchant_profile",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "merchant_name": {
+      "type": "string",
+      "required": true
+    },
+    "description": {
+      "type": "string"
+    },
+    "address": {
+      "type": "address",
+      "required": true
+    },
+    "dob": {
+      "type": "date",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "sex": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "user_id": {
+      "type": "string",
+      "required": true
+    },
+    "courier": {
+      "type": [
+        "courier"
+      ]
+    },
+    "area_hectar": {
+      "type": "number"
+    },
+    "picture_profile": {
+      "type": "string",
+      "required": false
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

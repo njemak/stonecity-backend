@@ -1,0 +1,36 @@
+{
+  "name": "SC-BACKEND",
+  "version": "1.0.0",
+  "main": "server/server.js",
+  "scripts": {
+     "start": "node server/server.js",
+    "deploy": "gcloud preview app deploy app.yaml",
+    "pretest": "jshint ."
+  },
+  "dependencies": {
+    "akarata": "^0.1.3",
+    "compression": "^1.0.3",
+    "cors": "^2.5.2",
+    "kerberos": "0.0.20",
+    "loopback": "^2.22.0",
+    "loopback-boot": "^2.6.5",
+    "loopback-component-explorer": "^2.1.0",
+    "loopback-connector-cloudant": "^1.0.7",
+    "loopback-connector-couch": "^0.1.1",
+    "loopback-connector-mongodb": "^1.13.3",
+    "loopback-datasource-juggler": "^2.39.0",
+    "nalapa": "^1.11.0",
+    "readline": "^1.3.0",
+    "request": "^2.72.0",
+    "serve-favicon": "^2.0.1",
+    "underscore": "^1.8.3"
+  },
+  "devDependencies": {
+    "jshint": "^2.5.6"
+  },
+  "repository": {
+    "type": "",
+    "url": ""
+  },
+  "description": "SC-BACKEND"
+}

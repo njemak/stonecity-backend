@@ -1,0 +1,39 @@
+{
+  "name": "address",
+  "base": "Model",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "province": {
+      "type": "string",
+      "required": true
+    },
+    "city": {
+      "type": "string",
+      "required": true
+    },
+    "district": {
+      "type": "string",
+      "required": true
+    },
+    "full_address": {
+      "type": "string",
+      "required": true
+    },
+    "zip_code": {
+      "type": "string",
+      "required": true
+    },
+    "latlng": {
+      "type": "latlong",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

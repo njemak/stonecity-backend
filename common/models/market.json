@@ -1,0 +1,59 @@
+{
+  "name": "market",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "price": {
+      "type": "number",
+      "required": true
+    },
+    "owner": {
+      "type": "string",
+      "required": true
+    },
+    "area_hectar": {
+      "type": "number",
+      "required": true
+    },
+    "harvest_time": {
+      "type": "date",
+      "required": true
+    },
+    "merchant_id": {
+      "type": "string",
+      "required": true
+    },
+    "picture": {
+      "type": [
+        "string"
+      ]
+    },
+    "phone": {
+      "type": "string",
+      "required": true
+    },
+    "email": {
+      "type": "string",
+      "required": true
+    },
+    "picture_profile": {
+      "type": "string",
+      "required": false
+    },
+    "address": {
+      "type": "address"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

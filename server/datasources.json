@@ -1,0 +1,12 @@
+{
+  "db": {
+    "name": "db",
+    "connector": "memory"
+  },
+  "mongodb": {
+    "url": "mongodb://njemak:dika18()@ds021671.mlab.com:21671/stonecity",
+    "name": "mongodb",
+    "defaultForType": "mongodb",
+    "connector": "loopback-connector-mongodb"
+  }
+}

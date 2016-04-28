@@ -1,0 +1,23 @@
+{
+  "name": "cart_item",
+  "base": "Model",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "market": {
+      "type": "market",
+      "required": true
+    },
+    "quantity": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

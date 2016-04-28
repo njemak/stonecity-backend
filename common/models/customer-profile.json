@@ -1,0 +1,47 @@
+{
+  "name": "customer_profile",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "user_id": {
+      "type": "string",
+      "required": true
+    },
+    "name": {
+      "type": "string",
+      "required": true
+    },
+    "phone": {
+      "type": "string",
+      "required": false
+    },
+    "sex": {
+      "type": "string",
+      "required": true
+    },
+    "dob": {
+      "type": "date",
+      "required": true
+    },
+    "address": {
+      "type": "address",
+      "required": true
+    },
+    "history": {
+      "type": [
+        "cart"
+      ]
+    },
+    "cart": {
+      "type": "cart"
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

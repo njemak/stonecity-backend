@@ -1,0 +1,23 @@
+{
+  "name": "latlong",
+  "base": "Model",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "lat": {
+      "type": "number",
+      "required": true
+    },
+    "lng": {
+      "type": "number",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}
