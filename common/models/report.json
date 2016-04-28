@@ -1,0 +1,35 @@
+{
+  "name": "report",
+  "base": "PersistedModel",
+  "strict": false,
+  "idInjection": false,
+  "options": {
+    "validateUpsert": true
+  },
+  "properties": {
+    "comment": {
+      "type": "string",
+      "required": true
+    },
+    "picture": {
+      "type": "string",
+      "required": true
+    },
+    "title": {
+      "type": "string",
+      "required": true
+    },
+    "customer_id": {
+      "type": "string",
+      "required": true
+    },
+    "category": {
+      "type": "string",
+      "required": true
+    }
+  },
+  "validations": [],
+  "relations": {},
+  "acls": [],
+  "methods": {}
+}

@@ -98,5 +98,11 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "report": {
+    "dataSource": "mongodb",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }
