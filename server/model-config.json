@@ -110,5 +110,11 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "container": {
+    "dataSource": "storage",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

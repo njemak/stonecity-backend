@@ -8,5 +8,12 @@
     "name": "mongodb",
     "defaultForType": "mongodb",
     "connector": "loopback-connector-mongodb"
+  },
+  "storage": {
+    "name": "storage",
+    "connector": "loopback-component-storage",
+    "provider": "amazon",
+    "key": "3GXgtQOt6aiFKqp8yg2u4hnpyQaKYyKhOhqP01zO",
+    "keyId": "AKIAJZRFPYPR75IBNXAQ"
   }
 }
