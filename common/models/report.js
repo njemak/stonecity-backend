@@ -1,7 +1,6 @@
 module.exports = function(Report) {
 
 	Report.getReport = function(cb) {
-		console.log("njemak")
 		
 	Report.find({limit:100 
           }, function (err, instance) {
@@ -38,7 +37,8 @@ module.exports = function(Report) {
 
 		returns :  {
 			arg : 'result',
-			type : 'object'
+			type : 'object',
+			root:true
 		}, 
 	});
 
