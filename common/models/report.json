@@ -11,10 +11,6 @@
       "type": "string",
       "required": true
     },
-    "picture": {
-      "type": "string",
-      "required": true
-    },
     "title": {
       "type": "string",
       "required": true
@@ -27,8 +23,17 @@
       "type": "string",
       "required": true
     },
+    "date": {
+      "type": "date",
+      "required": true
+    },
     "location": {
-      "type": "latlong"
+      "type": "latlong",
+      "required": true
+    },
+    "picture": {
+      "type": "string",
+      "required": false
     }
   },
   "validations": [],
