@@ -26,6 +26,9 @@
     "category": {
       "type": "string",
       "required": true
+    },
+    "location": {
+      "type": "latlong"
     }
   },
   "validations": [],

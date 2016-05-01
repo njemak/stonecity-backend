@@ -7,12 +7,14 @@
     "validateUpsert": true
   },
   "properties": {
-    "lat": {
-      "type": "number",
+    "coordinates": {
+      "type": [
+        "number"
+      ],
       "required": true
     },
-    "lng": {
-      "type": "number",
+    "type": {
+      "type": "string",
       "required": true
     }
   },
