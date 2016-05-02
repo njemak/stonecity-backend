@@ -122,5 +122,11 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "polygongeojson": {
+    "dataSource": null,
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }

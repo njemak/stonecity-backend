@@ -58,6 +58,9 @@
       "type": [
         "checkout_history"
       ]
+    },
+    "area_polygon": {
+      "type": "polygongeojson"
     }
   },
   "validations": [],

@@ -114,6 +114,67 @@ module.exports = function(Market) {
 		}, 
 	});
 
+	Market.getPolygon = function(cb) {
+
+		Market.find({limit:100 
+          }, function (err, instance) {
+
+          	var returnvalue = {}
+
+          	returnvalue.type = "FeatureCollection"
+          	var returnvaluearray = []
+          	for (var i = 0;i<instance.length;i++){
+          		var newobject = {}
+          		var picturenow;
+          		var colour;
+          		if (instance[i].name == "Apel"){
+          			colour = "#ff0000"
+          		}else if (instance[i].name == "Jeruk"){
+          			colour = "#ff8000"
+          		}else if (instance[i].name == "Jambu Air"){
+          			colour = "#99004c"
+          		}else if (instance[i].name == "Strawberry"){
+          			colour = "#660033"
+          		}else if (instance[i].name == "Markisa"){
+          			colour = "#999900"
+          		}else if (instance[i].name == "Mawar"){
+          			colour = "#66000"
+          		}else if (instance[i].name == "Jambu Merah"){
+          			colour = "#ff66b2"
+          		}
+          		newobject.type = "Feature"
+          		newobject.properties = {
+          			"harvest_time":instance[i].harvest_time,
+		            "name":instance[i].name,
+		            "area":instance[i].area_hectar,
+		            "owner":instance[i].owner,
+		            "picture":instance[i].picture_profile,
+		            "colour":colour
+          		}
+          		newobject.geometry = instance[i].area_polygon
+          		returnvaluearray.push(newobject)
+          	}
+
+          	returnvalue.features = returnvaluearray
+		cb(null,returnvalue)
+	});
+
+
+	};
+	
+	Market.remoteMethod('getPolygon', {
+		http : {
+			path : '/getPolygon',
+			verb : 'get'
+		},
+		description : "Search category",
+		returns :  {
+			arg : 'result',
+			type : 'object',
+			root:true
+		}, 
+	});
+
 
 	// Market.populateDummy = function(cb) {
 
