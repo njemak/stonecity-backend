@@ -1,5 +1,5 @@
 {
-  "name": "cart_item",
+  "name": "checkout_history",
   "base": "Model",
   "strict": false,
   "idInjection": false,
@@ -7,12 +7,12 @@
     "validateUpsert": true
   },
   "properties": {
-    "market": {
-      "type": "market",
+    "date": {
+      "type": "date",
       "required": true
     },
-    "quantity": {
-      "type": "number",
+    "customer_profile": {
+      "type": "customer_profile",
       "required": true
     },
     "comment": {
@@ -20,6 +20,14 @@
     },
     "rating": {
       "type": "number"
+    },
+    "quantitiy": {
+      "type": "number",
+      "required": true
+    },
+    "market_id": {
+      "type": "string",
+      "required": true
     }
   },
   "validations": [],

@@ -7,12 +7,6 @@
     "validateUpsert": true
   },
   "properties": {
-    "comment": {
-      "type": "string"
-    },
-    "rating": {
-      "type": "number"
-    },
     "carts_list": {
       "type": [
         "cart_item"

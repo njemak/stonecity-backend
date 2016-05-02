@@ -32,6 +32,89 @@ module.exports = function(Market) {
 		}, 
 	});
 
+	Market.checkout = function(data, cb) {
+		var _und = require('underscore');
+		var cart = data.carts_list
+		var arraycart = []
+		var market_id_list = []
+		for (var i = 0;i<cart.length;i++){
+			// console.log(cart[i])
+			var checkouthistory = {
+		    'market_id':cart[i].market.id,
+			'date' : new Date(),
+			'customer_profile' : data.customer_profile,
+			'quantitiy' : cart[i].quantity
+			}
+
+			market_id_list.push(cart[i].market.id)
+
+			arraycart.push(checkouthistory)
+			// var market_id = cart[i].market.id
+
+		}
+
+		//console.log(arraycart)
+		var post_history = _und.groupBy(arraycart, 'market_id')
+		for (var key in post_history) {
+		  if (post_history.hasOwnProperty(key)) {
+		  	var checkouthistorygroup = post_history[key]
+		  	console.log(checkouthistorygroup)
+
+		  	Market.findById(key,{fields: ['history']}, function(err, instance){
+		  		for (var i = 0;i<checkouthistorygroup.length;i++){
+		  			instance.history.push(checkouthistorygroup[i])
+		  		}
+				
+				console.log("market")
+				console.log(instance.history)
+
+			  	  Market.updateAll({id:key},{history:instance.history}, function (err, instance2) {
+			  	  	console.log("market updated")
+			  	  	console.log(instance2)
+		        });
+			  });
+		  }
+		}
+
+		var CustomerProfile = Market.app.models.CustomerProfile
+
+		var customer_id = data.customer_profile.id
+		CustomerProfile.findById(customer_id,{fields: ['history']}, function(err, instance){
+				var cartnow = {
+					'carts_list' : data.carts_list
+				}
+			  	  instance.history.push(cartnow)
+			  	  console.log("customer")
+			  	  console.log(instance.history)
+			  	  CustomerProfile.updateAll({id:customer_id},{history:instance.history}, function (err, instance2) {
+			  	  	console.log("customer updated")
+			  	  	console.log(instance2)
+		        });
+			  });
+
+		cb(null,"Success")
+
+	};
+	
+	Market.remoteMethod('checkout', {
+		http : {
+			path : '/checkout',
+			verb : 'post'
+		},
+		description : "Search category",
+		accepts : [ {
+		arg : 'data',
+		type : 'object',
+		http:{source:'body'}
+	 }],
+		returns :  {
+			arg : 'result',
+			type : 'string',
+			root:true
+		}, 
+	});
+
+
 	// Market.populateDummy = function(cb) {
 
 	// 	function randomDate(start, end) {

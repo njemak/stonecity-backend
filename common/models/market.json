@@ -19,10 +19,6 @@
       "type": "number",
       "required": true
     },
-    "harvest_time": {
-      "type": "date",
-      "required": true
-    },
     "merchant_id": {
       "type": "string",
       "required": true
@@ -53,6 +49,15 @@
     },
     "nutrition": {
       "type": "nutrition"
+    },
+    "harvest_time": {
+      "type": "date",
+      "required": true
+    },
+    "history": {
+      "type": [
+        "checkout_history"
+      ]
     }
   },
   "validations": [],

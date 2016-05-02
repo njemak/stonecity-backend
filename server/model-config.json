@@ -116,5 +116,11 @@
     "public": true,
     "$promise": {},
     "$resolved": true
+  },
+  "checkout_history": {
+    "dataSource": "db",
+    "public": true,
+    "$promise": {},
+    "$resolved": true
   }
 }
