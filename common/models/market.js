@@ -124,9 +124,13 @@ module.exports = function(Market) {
           	returnvalue.type = "FeatureCollection"
           	var returnvaluearray = []
           	for (var i = 0;i<instance.length;i++){
+          		console.log()
+          		if(instance[i].area_polygon.coordinates[0] != undefined){
           		var newobject = {}
           		var picturenow;
           		var colour;
+
+
           		if (instance[i].name == "Apel"){
           			colour = "#ff0000"
           		}else if (instance[i].name == "Jeruk"){
@@ -153,6 +157,8 @@ module.exports = function(Market) {
           		}
           		newobject.geometry = instance[i].area_polygon
           		returnvaluearray.push(newobject)
+          		}
+          		
           	}
 
           	returnvalue.features = returnvaluearray
