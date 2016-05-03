@@ -37,6 +37,7 @@ module.exports = function(Market) {
 		var cart = data.carts_list
 		var arraycart = []
 		var market_id_list = []
+		delete data.customer_profile["history"];
 		for (var i = 0;i<cart.length;i++){
 			// console.log(cart[i])
 			var checkouthistory = {
@@ -47,35 +48,59 @@ module.exports = function(Market) {
 			}
 
 			market_id_list.push(cart[i].market.id)
-
 			arraycart.push(checkouthistory)
 			// var market_id = cart[i].market.id
 
 		}
 
-		//console.log(arraycart)
-		var post_history = _und.groupBy(arraycart, 'market_id')
+		var market_id_uniq = _und.uniq(market_id_list)
+		var post_history = _und.groupBy(arraycart,'market_id')
+
 		for (var key in post_history) {
-		  if (post_history.hasOwnProperty(key)) {
-		  	var checkouthistorygroup = post_history[key]
-		  	console.log(checkouthistorygroup)
-
-		  	Market.findById(key,{fields: ['history']}, function(err, instance){
-		  		for (var i = 0;i<checkouthistorygroup.length;i++){
-		  			instance.history.push(checkouthistorygroup[i])
-		  		}
-				
-				console.log("market")
-				console.log(instance.history)
-
-			  	  Market.updateAll({id:key},{history:instance.history}, function (err, instance2) {
+			if(post_history.hasOwnProperty(key)){
+				Market.findById(key,{fields: ['history']}, function(err, instance){
+					var arraycheckout = post_history[key]
+					for (var i = 0;i<arraycheckout.length;i++){
+						instance.history.push(arraycheckout[i])
+					}
+					//instance.push(post_history[key])
+					Market.updateAll({id:key},{history:instance.history}, function (err, instance2) {
 			  	  	console.log("market updated")
 			  	  	console.log(instance2)
-		        });
-			  });
-		  }
-		}
+		        	});
+					
+				})
+			}
 
+		}
+		
+		//masih salah
+		//console.log(arraycart)
+		// var post_history = _und.groupBy(arraycart, 'market_id')
+		// for (var key in post_history) {
+		//   if (post_history.hasOwnProperty(key)) {
+		//   	var checkouthistorygroup = post_history[key]
+		//   	console.log(checkouthistorygroup)
+
+		//   	Market.findById(key,{fields: ['history']}, function(err, instance){
+		//   		for (var i = 0;i<checkouthistorygroup.length;i++){
+		//   			instance.history.push(checkouthistorygroup[i])
+		//   		}
+				
+		// 		console.log("market")
+		// 		console.log(instance.history)
+
+			  	  // Market.updateAll({id:key},{history:instance.history}, function (err, instance2) {
+			  	  // 	console.log("market updated")
+			  	  // 	console.log(instance2)
+		      //   });
+		// 	  });
+		//   }
+		// }
+
+
+
+		//Udah bener
 		var CustomerProfile = Market.app.models.CustomerProfile
 
 		var customer_id = data.customer_profile.id
@@ -86,7 +111,7 @@ module.exports = function(Market) {
 			  	  instance.history.push(cartnow)
 			  	  console.log("customer")
 			  	  console.log(instance.history)
-			  	  CustomerProfile.updateAll({id:customer_id},{history:instance.history}, function (err, instance2) {
+			  	  CustomerProfile.updateAll({id:customer_id},{history:instance.history, cart:{}}, function (err, instance2) {
 			  	  	console.log("customer updated")
 			  	  	console.log(instance2)
 		        });
